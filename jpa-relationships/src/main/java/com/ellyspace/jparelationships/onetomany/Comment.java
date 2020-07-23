@@ -27,13 +27,14 @@ public class Comment {
     public Comment(Long id, String content, Post post) {
         this.id = id;
         this.content = content;
-        setPost(post);
+        setPost(post); //연관관계 설정
     }
 
+    //연관관계 편의 메소드
     private void setPost(Post post) {
         if (Objects.isNull(this.post)) {
             this.post = post;
-            this.post.getComments().add(this);
+            this.post.addComment(this);
         }
     }
 }

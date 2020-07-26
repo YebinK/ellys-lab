@@ -1,6 +1,6 @@
 # JPA Relationships
 
-JPA 연관관계 설정하면서 마주친 문제들에 대해 정리합니다.
+JPA 연관관계들에 대한 여러가지 실험을 해보는 곳.
 <br/>
 ## N : N
 `Member` 엔티티와 `Mission` 엔티티가 있다.

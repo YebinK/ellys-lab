@@ -1,9 +1,11 @@
 package com.ellyspace.jparelationships.onetomany;
 
-public class CommentCreateRequest {
-    private Post postId;
-    private String content;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-    protected CommentCreateRequest() {
-    }
+@Getter
+@NoArgsConstructor()
+public class CommentCreateRequest {
+    private String content;
+    private Long postId;
 }

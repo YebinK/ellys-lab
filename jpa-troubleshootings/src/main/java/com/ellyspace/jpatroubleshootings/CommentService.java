@@ -22,7 +22,7 @@ public class CommentService {
             .content(request.getContent())
             .build();
 
-        postRepository.save(persistPost);
+//        postRepository.save(persistPost);
     }
 
 }

@@ -24,8 +24,7 @@ public class Comment {
     private Post post;
 
     @Builder
-    public Comment(Long id, String content, Post post) {
-        this.id = id;
+    public Comment(String content, Post post) {
         this.content = content;
         setPost(post); //연관관계 설정
     }

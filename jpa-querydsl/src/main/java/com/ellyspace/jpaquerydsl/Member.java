@@ -1,6 +1,7 @@
 package com.ellyspace.jpaquerydsl;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Member {
@@ -13,4 +14,17 @@ public class Member {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Team team;
+
+    protected Member() {
+    }
+
+    public Member(String name) {
+        this.name = name;
+    }
+
+    public void setTeam(Team team) {
+        if (Objects.isNull(this.team)) {
+            this.team = team;
+        }
+    }
 }

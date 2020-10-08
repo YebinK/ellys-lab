@@ -1,9 +1,7 @@
 package com.ellyspace.jpaquerydsl;
 
-import com.querydsl.jpa.impl.JPAQuery;
+import com.ellyspace.jpaquerydsl.repository.MemberRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class MemberService {

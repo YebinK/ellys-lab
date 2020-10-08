@@ -1,5 +1,6 @@
-package com.ellyspace.jpaquerydsl;
+package com.ellyspace.jpaquerydsl.repository;
 
+import com.ellyspace.jpaquerydsl.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

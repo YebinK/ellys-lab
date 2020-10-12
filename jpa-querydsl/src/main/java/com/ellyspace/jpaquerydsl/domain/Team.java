@@ -1,9 +1,12 @@
-package com.ellyspace.jpaquerydsl;
+package com.ellyspace.jpaquerydsl.domain;
+
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 @Entity
 public class Team {
 
@@ -13,7 +16,7 @@ public class Team {
 
     private String name;
 
-    @OneToMany(mappedBy="team")
+    @OneToMany(mappedBy="team", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Member> members = new ArrayList<>();
 
     protected Team() {

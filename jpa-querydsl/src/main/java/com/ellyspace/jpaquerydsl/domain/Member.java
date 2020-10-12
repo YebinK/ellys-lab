@@ -1,8 +1,11 @@
-package com.ellyspace.jpaquerydsl;
+package com.ellyspace.jpaquerydsl.domain;
+
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.Objects;
 
+@Getter
 @Entity
 public class Member {
 

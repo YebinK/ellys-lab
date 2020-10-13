@@ -1,5 +1,6 @@
 package com.ellyspace.jpaquerydsl;
 
+import com.ellyspace.jpaquerydsl.domain.Member;
 import com.ellyspace.jpaquerydsl.domain.Team;
 import com.ellyspace.jpaquerydsl.repository.TeamRepository;
 import com.ellyspace.jpaquerydsl.service.TeamService;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,7 +24,28 @@ public class TeamServiceTest {
     @Autowired
     private TeamRepository teamRepository;
 
-    @DisplayName("컬렉션 페치조인과 페이징 동시 사용 - 문제 없음")
+    @DisplayName("페이징 단독 사용 - limit 쿼리 나감")
+    @Test
+    void paging() {
+        //given
+        Team team1 = new Team("팀1");
+        Team team2 = new Team("팀2");
+        Team team3 = new Team("팀3");
+        Team team4 = new Team("팀4");
+        Team team5 = new Team("팀5");
+        Team team6 = new Team("팀6");
+        Team team7 = new Team("팀7");
+
+        teamRepository.saveAll(Arrays.asList(team1, team2, team3, team4, team5, team6, team7));
+
+        //when
+        List<Team> persistTeams = teamService.findThreeTeamsWithoutMember();
+
+        //then
+        assertThat(persistTeams).hasSize(3);
+    }
+
+    @DisplayName("컬렉션 페치조인과 페이징 동시 사용 - 문제 없지만 limit 쿼리 안 나감")
     @Test
     void fetchJoinWithPaging() {
         //given
@@ -37,9 +60,33 @@ public class TeamServiceTest {
         teamRepository.saveAll(Arrays.asList(team1, team2, team3, team4, team5, team6, team7));
 
         //when
-        List<Team> teams = teamService.findThreeTeams();
+        List<Team> persistTeams = teamService.findThreeTeams();
 
         //then
-        assertThat(teams).hasSize(3);
+        assertThat(persistTeams).hasSize(3);
     }
+
+    @DisplayName("컬렉션 페치조인과 페이징 동시 사용 - 안 돌아간다.")
+    @Test
+    void fetchJoinWithPagingWhenLargeData() {
+        List<Team> createdTeams = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            String teamName = "팀" + i;
+            Team team = new Team(teamName);
+            team.addMember(new Member("멤버"));
+            team.addMember(new Member("멤버"));
+            createdTeams.add(team);
+        }
+
+        teamRepository.saveAll(createdTeams);
+
+        System.err.println("==========");
+        //when
+        List<Team> persistTeams = teamService.findThreeTeams();
+        System.err.println("==========");
+        //then
+        assertThat(persistTeams).hasSize(3);
+    }
+
 }

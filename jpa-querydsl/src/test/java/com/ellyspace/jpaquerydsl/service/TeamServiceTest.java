@@ -1,4 +1,4 @@
-package com.ellyspace.jpaquerydsl;
+package com.ellyspace.jpaquerydsl.service;
 
 import com.ellyspace.jpaquerydsl.domain.Member;
 import com.ellyspace.jpaquerydsl.domain.Team;

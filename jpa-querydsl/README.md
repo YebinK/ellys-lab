@@ -24,4 +24,9 @@ Hibernate:
 
 발생한 쿼리는 다음과 같다. limit 쿼리가 나가지 않는다!
 
-페치조인과 페이징을 함께 쓰면 페이징이 어플리케이션 단에서 조정된다. 
+페치조인과 페이징을 함께 쓰면 페이징이 어플리케이션 단에서 조정된다.
+
+### Q. 특정 Team에 해당하는 Member들을 페이징 처리해서 가져오고 싶다면 어떻게 해야할까?
+
+우선 찾은 해결책은 Team에서 Member를 꺼내지 않고, **Member에 바로 접근**하는 것이다.
+MemberQueryRepository.findMembersByTeam()을 참고하자.

@@ -25,4 +25,12 @@ public class Post {
         this.id = id;
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }

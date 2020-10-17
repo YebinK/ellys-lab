@@ -18,7 +18,7 @@ public class TeamQueryRepository {
         this.jpaQueryFactory = jpaQueryFactory;
     }
 
-    //페이징 API와 컬렉션 페치조인 함께 사용
+    //페이징 API
     public QueryResults<Team> findThreeTeamsWithoutMember() {
         return jpaQueryFactory.selectFrom(team)
                 .limit(3)

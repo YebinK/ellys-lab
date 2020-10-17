@@ -45,7 +45,7 @@ public class TeamServiceTest {
         assertThat(persistTeams).hasSize(3);
     }
 
-    @DisplayName("컬렉션 페치조인과 페이징 동시 사용 - 문제 없지만 limit 쿼리 안 나감")
+    @DisplayName("페이징과 컬렉션 페치조인 동시 사용, 컬렉션이 없는 경우 - 문제 없지만 limit 쿼리 안 나감")
     @Test
     void fetchJoinWithPaging() {
         //given
@@ -66,7 +66,7 @@ public class TeamServiceTest {
         assertThat(persistTeams).hasSize(3);
     }
 
-    @DisplayName("컬렉션 페치조인과 페이징 동시 사용 - 안 돌아간다.")
+    @DisplayName("페이징과 컬렉션 페치조인 동시 사용, 컬렉션 값이 있는 경우 - 문제 없지만 limit 쿼리 안 나감")
     @Test
     void fetchJoinWithPagingWhenLargeData() {
         List<Team> createdTeams = new ArrayList<>();
@@ -81,10 +81,9 @@ public class TeamServiceTest {
 
         teamRepository.saveAll(createdTeams);
 
-        System.err.println("==========");
         //when
         List<Team> persistTeams = teamService.findThreeTeams();
-        System.err.println("==========");
+
         //then
         assertThat(persistTeams).hasSize(3);
     }

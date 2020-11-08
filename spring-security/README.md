@@ -1,6 +1,6 @@
 # Spring Security 연습하기
 
-### 요구사항
+## 요구사항
 - [ ] 홈 페이지
 - [ ] 로그인 페이지
 - [ ] 로그아웃 버튼
@@ -25,3 +25,37 @@
     - [ ] 자유 게시판 글 조회 불가
     - [ ] 공지사항 게시판 접근 가능
     - [ ] 공지사항 게시판 조회 가능
+    
+
+
+
+<br/>
+
+
+
+---
+
+## 학습하기
+[공식문서](https://docs.spring.io/spring-security/site/docs/current/reference/html5/) 를 읽고 작성합니다. 🤓
+
+### Spring Security 개요
+Spring Security는 인증, 인가, (일반적인) 공격에 대한 보호 기능을 제공하는 프레임워크이며 Spring-based 애플리케이션의 security 표준이다.
+
+Spring Security는 특별한 설정 파일 없이 자체적으로 동작하기를 지향한다. 예를 들면, 개발자는 코드에 특정한 자바 인증, 인가 서비스(JAAS) 정책 파일을 설정할 필요가 없다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

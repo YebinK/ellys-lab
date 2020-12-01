@@ -22,9 +22,9 @@ public class Team {
 
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "TEAM_MEMBER")
-    private final List<Member> members = new ArrayList<>();
+//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "TEAM_MEMBER")
+//    private final List<Member> members = new ArrayList<>();
 
     public Team() {
     }
@@ -33,7 +33,7 @@ public class Team {
         this.name = name;
     }
 
-    public void addMember(Member member) {
-        this.members.add(member);
-    }
+//    public void addMember(Member member) {
+//        this.members.add(member);
+//    }
 }

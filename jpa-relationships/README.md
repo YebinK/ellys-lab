@@ -12,3 +12,6 @@ JPA 연관관계들에 대한 여러가지 실험을 해보는 곳.
 `Post` 엔티티와 `Comment` 엔티티가 있다.
 하나의 Post에는 여러 개의 Comment가 달릴 수 있고, Comment의 생명주기는 Post에 종속적이기 때문에 
 둘의 관계를 1 : N으로 정의했다.
+
+### OneToMany 단방향에서 CascadeType.ALL로 걸 때
+`Team` - `Member`

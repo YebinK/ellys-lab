@@ -13,5 +13,23 @@ JPA 연관관계들에 대한 여러가지 실험을 해보는 곳.
 하나의 Post에는 여러 개의 Comment가 달릴 수 있고, Comment의 생명주기는 Post에 종속적이기 때문에 
 둘의 관계를 1 : N으로 정의했다.
 
-### OneToMany 단방향에서 CascadeType.ALL로 걸 때
-`Team` - `Member`
+
+## 궁금증: 일대다 단방향에서 @JoinColumn을 쓰는 것 vs 다대일 양방향에서 @JoinColumn을 쓰는 것 
+`Team`, `Member` 정의.
+
+1. 일대다 단방향 (@OneToMany)
+```
+Hibernate: insert into team (id, name) values (null, ?)
+Hibernate: insert into member (id, name) values (null, ?)
+Hibernate: insert into member (id, name) values (null, ?)
+Hibernate: insert into member (id, name) values (null, ?)
+Hibernate: update member set team_member=? where id=?
+Hibernate: update member set team_member=? where id=?
+Hibernate: update member set team_member=? where id=?
+Hibernate: select member0_.id as id1_1_, member0_.name as name2_1_ from member member0_
+```
+2. 다대일 단방향 (@ManyToOne)
+```
+
+```
+

@@ -21,4 +21,26 @@ public class MemberQueryRepository {
                 .limit(3)
                 .fetchResults();
     }
+
+    /**
+     * countDistinct() vs count() vs fetchCount()
+     */
+    public Long findMembersCountDistinct() {
+        return jpaQueryFactory.select(member.id.countDistinct())
+                .from(member)
+                .fetchFirst();
+    }
+
+    public Long findMembersCount() {
+        return jpaQueryFactory.select(member.id.count())
+                .from(member)
+                .fetchFirst();
+    }
+
+    public Long findMembersFetchCount() {
+        return jpaQueryFactory.select(member.id)
+                .from(member)
+                .fetchCount();
+    }
+
 }

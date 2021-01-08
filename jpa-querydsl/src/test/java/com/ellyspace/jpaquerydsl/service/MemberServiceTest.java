@@ -17,9 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MemberServiceTest {
 
     @Autowired
-    private TeamQueryRepository teamQueryRepository;
-
-    @Autowired
     private TeamRepository teamRepository;
 
     @Autowired

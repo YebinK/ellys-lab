@@ -30,3 +30,43 @@ Hibernate:
 
 우선 찾은 해결책은 Team에서 Member를 꺼내지 않고, **Member에 바로 접근**하는 것이다.
 MemberQueryRepository.findMembersByTeam()을 참고하자.
+
+
+<br/>
+---
+<br/>
+
+## countDistinct() vs count() vs fetchCount() 뭐가 다를까?
+
+**1. countDistinct()**
+<br/>
+> memberQueryRepository.findMembersCountDistinct()
+```sql
+select
+    count(distinct member0_.id) as col_0_0_ 
+from
+    member member0_ limit ?
+```
+특이점: limit이 걸린다.
+
+**2. count()** 
+<br/>
+> memberQueryRepository.findMembersCount()
+```sql
+select
+    count(member0_.id) as col_0_0_ 
+from
+    member member0_ limit ?
+```
+특이점: limit이 걸린다.
+
+**3. fetchCount()** 
+<br/>
+> memberQueryRepository.findMembersFetchCount()
+```sql
+select
+    count(member0_.id) as col_0_0_ 
+from
+    member member0_
+```
+특이점: count() 쿼리로 변경되어 실행된다. limit이 없다.

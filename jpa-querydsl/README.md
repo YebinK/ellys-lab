@@ -48,6 +48,7 @@ from
     member member0_ limit ?
 ```
 특이점: limit이 걸린다.
+❗️ 전체 limit이 걸리는 것 같긴 한데 왜, 얼마나 걸리는지는 모르겠다. 아직 풀리지 않는 의문
 
 **2. count()** 
 <br/>

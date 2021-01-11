@@ -33,18 +33,18 @@ class MemberQueryRepositoryTest {
         memberRepository.save(new Member("elly3"));
         memberRepository.save(new Member("elly4"));
         memberRepository.save(new Member("elly5"));
-//        memberRepository.save(new Member("elly6"));
-//        memberRepository.save(new Member("elly7"));
-//        memberRepository.save(new Member("elly8"));
-//        memberRepository.save(new Member("elly9"));
-//        memberRepository.save(new Member("elly5"));
+        memberRepository.save(new Member("elly6"));
+        memberRepository.save(new Member("elly7"));
+        memberRepository.save(new Member("elly8"));
+        memberRepository.save(new Member("elly9"));
+        memberRepository.save(new Member("elly5"));
     }
 
     @Test
     void findMembersCountDistinct() {
         System.err.println("========countDistinct 테스트 시작");
         Long memberSize = memberQueryRepository.findMembersCountDistinct();
-        assertThat(memberSize).isEqualTo(5);
+        assertThat(memberSize).isEqualTo(10);
         System.err.println("========countDistinct 테스트 종료");
     }
 
@@ -52,7 +52,7 @@ class MemberQueryRepositoryTest {
     void findMembersCount() {
         System.err.println("========count 테스트 시작");
         Long memberSize = memberQueryRepository.findMembersCount();
-        assertThat(memberSize).isEqualTo(5);
+        assertThat(memberSize).isEqualTo(10);
         System.err.println("========count 테스트 종료");
     }
 
@@ -60,7 +60,7 @@ class MemberQueryRepositoryTest {
     void findMembersFetchCount() {
         System.err.println("========fetchCount 테스트 시작");
         Long memberSize = memberQueryRepository.findMembersFetchCount();
-        assertThat(memberSize).isEqualTo(5);
+        assertThat(memberSize).isEqualTo(10);
         System.err.println("========fetchCount 테스트 종료");
     }
 

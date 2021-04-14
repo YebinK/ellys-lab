@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(value="httpBin", url="http://httpbin.org")
 public interface HttpBinFeignClient {
 
-    @GetMapping("/delay/{seconds}")
-    Object requestWithDelay(@PathVariable("seconds") int seconds);
+    @GetMapping("/delay/{delaySeconds}")
+    Object requestWithDelay(@PathVariable("delaySeconds") int delaySeconds);
 }

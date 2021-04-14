@@ -25,10 +25,18 @@ public interface HttpBinFeignClient {
 
 FeignClient를 만들었으니 이제 해당 FeignClient를 Enable시켜줄 어노테이션을 하나 만들어줍니다.
 
+```java
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@EnableFeignClients(basePackageClasses = HttpBinFeignClient.class)
+public @interface EnableHttpBinFeignClient {
+}
+
+```
 
 
-
-우선, yml 파일을 이용해 Feign의 readTimeout 설정을 추가합니다.  
+마지막으로, yml 파일에 Feign의 readTimeout 설정을 추가합니다.  
 
 참고:
 `connectTimeout`: 해당 서버와 커넥션을 맺기까지의 시간
@@ -39,12 +47,19 @@ FeignClient를 만들었으니 이제 해당 FeignClient를 Enable시켜줄 어�
 feign:
   client:
     config:
-      default:  //전역 설정 (모든 FeignClient에 적용된다.)
+      default:  #전역 설정 (모든 FeignClient에 적용된다.)
         connectTimeout: 1000
         readTimeout: 3000
 ```
-이렇게 설정할 수 있다. 
+readTimeout을 3초로 설정했습니다. 즉, 커넥션을 맺은 이후 응답까지 3초 이상이 걸리면 exception이 발생하게 됩니다.
+
+참고: 
+만약 여기서 클라이언트마다 다른 설정을 주고 싶다면, `default:` 대신 `클라이언트이름:` 로 주면 됩니다.
  
+이제 테스트를 위한 설정은 준비를 마쳤으니, 테스트를 짜봅시다.
+
+
+
 
 
 

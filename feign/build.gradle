@@ -8,7 +8,7 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'groovy'
 
 ext {
-    springCloudVersion = 'Finchley.RELEASE'
+    springCloudVersion = '2020.0.2' //https://spring.io/projects/spring-cloud Release Train 참고
 }
 
 repositories {
